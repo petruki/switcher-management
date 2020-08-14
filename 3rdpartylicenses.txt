@@ -738,9 +738,6 @@ SOFTWARE.
 ng2-charts
 ISC
 
-ngx-cookie-service
-MIT
-
 ngx-markdown
 MIT
 MIT License
