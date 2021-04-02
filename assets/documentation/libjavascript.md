@@ -22,20 +22,20 @@
 </br>
 
 ##### - Module initialization
-The context properties stores all information regarding connectivity and strategy settings.
+The context properties stores all information regarding connectivity.
 
 ```js
-const Switcher = require("switcher-client");
+const Switcher = require('switcher-client');
 
-const apiKey = 'API Key';
-const environment = 'default'; // Production = default
+const apiKey = '[API_KEY]';
+const environment = 'default';
 const domain = 'My Domain';
 const component = 'MyApp';
-const url = 'https://switcher-load-balance.herokuapp.com';
+const url
 ```
 
-- **apiKey**: Switcher-API key generated after creating a domain..
-- **environment**: Environment name. Production environment is named as 'default'.
+- **apiKey**: Switcher-API key generated to your component.
+- **environment**: (optional) Environment name. Production environment is named as 'default'.
 - **domain**: Domain name.
 - **component**: Application name.
 - **url**: Swither-API endpoint.
@@ -45,16 +45,20 @@ You can also activate features such as offline and silent mode:
 
 ```js
 const offline = true;
+const logger = true;
 const snapshotLocation = './snapshot/';
 const silentMode = true;
 const retryAfter = '5m';
 
-let switcher = new Switcher(url, apiKey, domain, component, environment, {
-      offline, snapshotLocation, silentMode, retryAfter
+Switcher.buildContext({ url, apiKey, domain, component, environment }, {
+    offline, logger, snapshotLocation, silentMode, retryAfter
 });
+
+let switcher = Switcher.factory();
 ```
 
 - **offline**: If activated, the client will only fetch the configuration inside your snapshot file. The default value is 'false'.
+- **logger**: If activated, it is possible to retrieve the last results from a given Switcher key using Switcher.getLogger('KEY')
 - **snapshotLocation**: Location of snapshot files. The default value is './snapshot/'.
 - **silentMode**: If activated, all connectivity issues will be ignored and the client will automatically fetch the configuration into your snapshot file.
 - **retryAfter** : Time given to the module to re-establish connectivity with the API - e.g. 5s (s: seconds - m: minutes - h: hours).
@@ -67,21 +71,24 @@ Here are some examples:
 
 1. **No parameters**
 Invoking the API can be done by instantiating the switcher and calling *isItOn* passing its key as a parameter.
+
 ```js
 const switcher = new Switcher(url, apiKey, domain, component, environment);
 await switcher.isItOn('FEATURE01');
 ```
 
 2. **Promise**
-Using promise is another way to call the API if you want, like:
+Most functions were implemented using async operations. Here it is a differnet way to execute the criteria:
+
 ```js
-switcher.isItOnPromise('KEY')
+switcher.isItOn('KEY')
     .then(result => console.log('Result:', result))
     .catch(error => console.log(error));
 ```
 
 3. **Strategy validation - preparing input**
 Loading information into the switcher can be made by using *prepare*, in case you want to include input from a different place of your code. Otherwise, it is also possible to include everything in the same call.
+
 ```js
 switcher.prepare('FEATURE01', [Switcher.StrategiesType.VALUE, 'USER_1');
 switcher.isItOn();
@@ -89,21 +96,12 @@ switcher.isItOn();
 
 4. **Strategy validation - all-in-one execution**
 All-in-one method is fast and include everything you need to execute a complex call to the API.
+
 ```js
 await switcher.isItOn('FEATURE01',
     [Switcher.StrategiesType.VALUE, 'User 1', 
     Switcher.StrategiesType.NETWORK, '192.168.0.1']
 );
-```
-
-</br>
-
-##### - Offline settings
-You can also force the Switcher library to work offline. In this case, the snapshot location must be set up and the context re-built using the offline flag.
-
-```java
-properties.put(SwitcherContextParam.SNAPSHOT_LOCATION, "/src/resources");
-SwitcherFactory.buildContext(properties, true);
 ```
 
 </br>
@@ -119,6 +117,22 @@ Switcher.forget('FEATURE01');
 switcher.isItOn('FEATURE01'); // Now, it's going to return the result retrieved from the API or the Snaopshot file
 ```
 
+**Enabling Test Mode**
+You may want to enable this feature while using Switcher Client with automated testing.
+It prevents the Switcher Client from locking snapshot files even after the test execution.
+
+To enable this feature, it is recommended to place the following on your test setup files:
+```js
+Switcher.setTestEnabled();
+```
+
+##### Loading Snapshot from the API
+This step is optional if you want to load a copy of the configuration that can be used to eliminate latency when offline mode is activated.
+
+```js
+Switcher.loadSnapshot();
+```
+
 ##### - Snapshot version check
 For convenience, an implementation of a domain version checker is available if you have external processes that manage snapshot files.
 
@@ -130,6 +144,16 @@ switcher.checkSnapshot();
 
 ### Version Log
 
+- 3.0.0:
+    - Improved client inicialization
+    - Improved Snapshop data lookup
+    - Added compatibility with ES6
+    - Fixed built-in log manager
+- 2.0.9:
+    - Added Test Mode feature
+    - Security patch: Axios updated from 0.21.0 to 0.21.1
+    - Improved API resource handling
+- 2.0.5: Added Snapshot Autoload
 - 2.0.2: Added a built-in execution logger
 - 2.0.0:
     - Improved performance when loading snapshot file.

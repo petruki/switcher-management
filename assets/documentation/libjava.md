@@ -17,11 +17,12 @@
 
 ##### - Install  
 - Maven
+
 ```xml
 <dependency>
     <groupId>com.github.switcherapi</groupId>
     <artifactId>switcher-client</artifactId>
-    <version>1.0.6</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -41,6 +42,7 @@ The context map properties stores all information regarding connectivity and str
 - SNAPSHOT_AUTO_LOAD: (boolean) Set the module to automatically download the snapshot configuration.
 
 All set, you can now build the context.
+
 ```java
 SwitcherFactory.buildContext(properties, false);
 ```
@@ -54,6 +56,7 @@ There are a few different ways to call the API using the java library.
 1. **No parameters**
 
   Invoking the API can be done by obtaining the switcher object and calling *isItOn*. It can also be forced to call another key any time you want.
+
   ```java
   Switcher switcher = SwitcherFactory.getSwitcher("FEATURE01");
   switcher.isItOn();
@@ -64,6 +67,7 @@ There are a few different ways to call the API using the java library.
 2. **Strategy validation - preparing input**
 
   Loading values into the switcher can be done by using *prepareEntry*, in case you want to include input from a different place of your code. Otherwise, it is also possible to include everything in the same call.
+
   ```java
   List<Entry> entries = new ArrayList<>();
   entries.add(new Entry(Entry.DATE, "2019-12-10"));
@@ -86,18 +90,19 @@ There are a few different ways to call the API using the java library.
 
 3. **Strategy validation - chained call**
 
-  Create chained calls using 'prepareEntry' functions one by one.
+  Create chained calls using 'getSwitcher' then 'prepareEntry' then 'isItOn' functions.
+
   ```java
   Switcher switcher = SwitcherFactory.getSwitcher("FEATURE01")
         .prepareEntry(new Entry(Entry.VALUE, "My value"))
-        .prepareEntry(new Entry(Entry.NETWORK, "10.0.0.1"));
-			
-	switcher.isItOn();
+        .prepareEntry(new Entry(Entry.NETWORK, "10.0.0.1"))
+        .isItOn();
   ```
 
 4. **Strategy validation - all-in-one execution**
 
   All-in-one method is fast and include everything you need to execute a complex call to the API. Stack inputs changing the last parameter to *true* in case you need to add more values to the strategy validator.
+
   ```java
   switcher.isItOn("FEATURE01", new Entry(Entry.NETWORK, "10.0.0.3"), false);
   ```
@@ -105,11 +110,28 @@ There are a few different ways to call the API using the java library.
 5. **Accessing the response history**
 
   Switchers when created store the last execution result from a given switcher key. This can be useful for troubleshooting or internal logging.
+  
   ```java
   switcher.getHistoryExecution();
   ```
 
 </br>
+
+##### - Real-time snapshot updater
+Let the Switcher Client manage your application local snapshot file.
+
+In order to minimize roundtrips and unnecessary file parsing, try to use one of these features to improve the overall performance when accessing snapshots locally.
+
+1. This feature will update the in-memory Snapshot every time a modification on the file occurs.
+```java
+SwitcherFactory.watchSnapshot();
+SwitcherFactory.stopWatchingSnapshot();
+```
+
+2. You can tell the Switcher Client to check if the snapshot file is updated. This will ensure that your application is running the most recent version of your cloud configuration.
+```java
+SwitcherFactory.validateSnapshot();
+```
 
 ##### - Offline settings
 You can also force the Switcher library to work offline. In this case, the snapshot location must be set up and the context re-built using the offline flag.
@@ -138,20 +160,34 @@ switcher.isItOn(); // Now, it's going to return the result retrieved from the AP
 </br>
 
 ### Version Log
+- 1.1.0:
+  - Improved snapshop lookup mechanism
+  - Included snashot validation when set to online mode
+  - Critical fix: reverted jersey-media-json-jackson version to 2.33
+- 1.0.9:
+  - Updated dependency jersey-client from 2.31 to 2.32
+  - Updated dependency jersey-hk2 from 2.31 to 2.32
+  - Updated dependency jersey-media-json-jackson from 2.31 to 3.0.0
+  - Updated dependency common-net from 3.7 to 3.7.1
+- 1.0.8:
+	- Fixed issues when using Silent Mode
+	- Fixed error when using only access to online API
+	- Improved validation when verifying whether API is accessible
+	- Added validations when preparing the Switcher Context
 - 1.0.7: Added Regex Validation
 - 1.0.6: Updated depencencies & new features
 	- Updated dependency jersey-hk2 from 2.28 to 2.31
-	- Updated dependency commons-net from 3.3 to 3.6.
-	- Updated dependency commons-lang3 from 3.8.1 to 3.10.
-	- Updated dependency gson from 2.8.5 to 2.8.6.
-	- Added execution log to Switcher.
-	- Added bypass metrics and show detailed criteria evaluation options to Switcher objects.
+	- Updated dependency commons-net from 3.3 to 3.6
+	- Updated dependency commons-lang3 from 3.8.1 to 3.10
+	- Updated dependency gson from 2.8.5 to 2.8.6
+	- Added execution log to Switcher
+	- Added bypass metrics and show detailed criteria evaluation options to Switcher objects
 - 1.0.5: Security patch - Jersey has been updated - 2.28 to 2.31
 - 1.0.4: Added Numeric Validation
 - 1.0.3: Security patch - Log4J has been updated - 2.13.1 to 2.13.3
 - 1.0.2: 
-    - Improved performance when loading snapshot file.
-    - Snapshot file auto load when updated.
+    - Improved performance when loading snapshot file
+    - Snapshot file auto load when updated
     - Re-worked built-in mock implementation
 - 1.0.1: Security patch - Log4J has been updated
 - 1.0.0: Working release
