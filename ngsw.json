@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1619645995791,
+  "timestamp": 1619646009327,
   "index": "/switcher-management/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "/switcher-management/7.715d65efcefd4a82d504.js",
         "/switcher-management/favicon.ico",
         "/switcher-management/index.html",
-        "/switcher-management/main.942277795d7f2e1e2456.js",
+        "/switcher-management/main.9c828004df7df08b1f6a.js",
         "/switcher-management/manifest.webmanifest",
         "/switcher-management/polyfills-es5.5abacea79878db23da0e.js",
         "/switcher-management/polyfills.87b6fdf96d6712f577e0.js",
@@ -242,8 +242,8 @@
     "/switcher-management/assets/switcherapi_meta_og.jpg": "78df2a9bcde4ea0e53b96cd4b414a228a5b22e29",
     "/switcher-management/assets/switcherapi_white.png": "747caa686837ae9832ccd7f1c1bf46b354d8efb6",
     "/switcher-management/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/switcher-management/index.html": "9cc220fdfb6f3a0eaf39ce3c19414c52ce0c7db7",
-    "/switcher-management/main.942277795d7f2e1e2456.js": "c6fb224ed5bc681466d476df8615ef441f28d9ce",
+    "/switcher-management/index.html": "add09c46a608ba811252818a62f8e5e12468cc05",
+    "/switcher-management/main.9c828004df7df08b1f6a.js": "b406fc3a2850504b3bf8a90ccbfce15b2b522b58",
     "/switcher-management/manifest.webmanifest": "c47c4e887473eee6deafc5fa7680b22860e67647",
     "/switcher-management/polyfills-es5.5abacea79878db23da0e.js": "edbfabd01d67f8d7d5c75cee94060ad365e8f417",
     "/switcher-management/polyfills.87b6fdf96d6712f577e0.js": "e4360550c90fa75035a9a6668f48be4e0efc30b8",
