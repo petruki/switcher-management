@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1620341166549,
+  "timestamp": 1620854186353,
   "index": "/switcher-management/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "/switcher-management/7.715d65efcefd4a82d504.js",
         "/switcher-management/favicon.ico",
         "/switcher-management/index.html",
-        "/switcher-management/main.8586a8fd634f950e582d.js",
+        "/switcher-management/main.c4896df8ef1e7b83cd47.js",
         "/switcher-management/manifest.webmanifest",
         "/switcher-management/polyfills-es5.3e23ad0caee1c69cc394.js",
         "/switcher-management/polyfills.015e01240b0d8c7c3427.js",
@@ -207,8 +207,8 @@
     "/switcher-management/assets/documentation/images/teams/teams_invite_accept.jpg": "8968960da6bcc6819efd84993a757bd08e204624",
     "/switcher-management/assets/documentation/images/teams/teams_pending.jpg": "00da58ec1373932cebe5dec9c1884b4a9397d57b",
     "/switcher-management/assets/documentation/images/teams/teams_roles_create.jpg": "b01c1aa3708eaa2cb1f62fe5c79e48ba69edaddc",
-    "/switcher-management/assets/documentation/libjava.md": "010f743be3d025074b814b58f4acd7b39e4748f7",
-    "/switcher-management/assets/documentation/libjavascript.md": "5e7164dd35d9d04368364221740c33b1eb8df0ef",
+    "/switcher-management/assets/documentation/libjava.md": "b5623e01a804ac8d47043e30c9b32b64f7507e36",
+    "/switcher-management/assets/documentation/libjavascript.md": "4fca31cf19e048987e245b778692c9123f93fb95",
     "/switcher-management/assets/documentation/metrics.md": "b8db654d4bc2456e5eacf99c98e2d902c255ac39",
     "/switcher-management/assets/documentation/overview.md": "dfa34b547661e39611df266825cf2d1f95286713",
     "/switcher-management/assets/documentation/relay.md": "8b1b9072aacbb5271b2883efadd92ec611ec5e47",
@@ -242,8 +242,8 @@
     "/switcher-management/assets/switcherapi_meta_og.jpg": "78df2a9bcde4ea0e53b96cd4b414a228a5b22e29",
     "/switcher-management/assets/switcherapi_white.png": "747caa686837ae9832ccd7f1c1bf46b354d8efb6",
     "/switcher-management/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/switcher-management/index.html": "6181b807262619ad228312b2975ed6be9f054074",
-    "/switcher-management/main.8586a8fd634f950e582d.js": "79c20b5218a41bda006b162e9224bdb18bf7ad31",
+    "/switcher-management/index.html": "0332f9032bbbbd44bea5496e2c93fc7022a6d7e2",
+    "/switcher-management/main.c4896df8ef1e7b83cd47.js": "9793b656840899c1c03264a4a993d3ff1f098627",
     "/switcher-management/manifest.webmanifest": "c47c4e887473eee6deafc5fa7680b22860e67647",
     "/switcher-management/polyfills-es5.3e23ad0caee1c69cc394.js": "edbfabd01d67f8d7d5c75cee94060ad365e8f417",
     "/switcher-management/polyfills.015e01240b0d8c7c3427.js": "e4360550c90fa75035a9a6668f48be4e0efc30b8",
