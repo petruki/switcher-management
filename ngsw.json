@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1620854241072,
+  "timestamp": 1621459356781,
   "index": "/switcher-management/index.html",
   "assetGroups": [
     {
@@ -16,10 +16,10 @@
         "/switcher-management/7.715d65efcefd4a82d504.js",
         "/switcher-management/favicon.ico",
         "/switcher-management/index.html",
-        "/switcher-management/main.0f91df758abd91b04cd4.js",
+        "/switcher-management/main.abe65a37550fddeb3c3b.js",
         "/switcher-management/manifest.webmanifest",
-        "/switcher-management/polyfills-es5.5847ef7fcc4bc4993858.js",
-        "/switcher-management/polyfills.7ce324024fe199db2b4b.js",
+        "/switcher-management/polyfills-es5.3e23ad0caee1c69cc394.js",
+        "/switcher-management/polyfills.015e01240b0d8c7c3427.js",
         "/switcher-management/runtime.1776dcc34c61949f3ebb.js",
         "/switcher-management/scripts.748ee96c5e079e29b3a6.js",
         "/switcher-management/styles.f9c59f871f64682b24a3.css"
@@ -242,11 +242,11 @@
     "/switcher-management/assets/switcherapi_meta_og.jpg": "78df2a9bcde4ea0e53b96cd4b414a228a5b22e29",
     "/switcher-management/assets/switcherapi_white.png": "747caa686837ae9832ccd7f1c1bf46b354d8efb6",
     "/switcher-management/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/switcher-management/index.html": "15ef298bd1e3daef964f37c797fd0cdb02af5474",
-    "/switcher-management/main.0f91df758abd91b04cd4.js": "314553830fefd1c7c360c993bccfc93d8423cd6d",
+    "/switcher-management/index.html": "8df0d58405872e5101ee996e263f653ea8499cbd",
+    "/switcher-management/main.abe65a37550fddeb3c3b.js": "29b9e06400aa53bd6251ee7bd22e6fea0534ec9d",
     "/switcher-management/manifest.webmanifest": "c47c4e887473eee6deafc5fa7680b22860e67647",
-    "/switcher-management/polyfills-es5.5847ef7fcc4bc4993858.js": "edbfabd01d67f8d7d5c75cee94060ad365e8f417",
-    "/switcher-management/polyfills.7ce324024fe199db2b4b.js": "e4360550c90fa75035a9a6668f48be4e0efc30b8",
+    "/switcher-management/polyfills-es5.3e23ad0caee1c69cc394.js": "edbfabd01d67f8d7d5c75cee94060ad365e8f417",
+    "/switcher-management/polyfills.015e01240b0d8c7c3427.js": "e4360550c90fa75035a9a6668f48be4e0efc30b8",
     "/switcher-management/runtime.1776dcc34c61949f3ebb.js": "8c630623bd84bed5c5effaebfd5ff9a1ae790845",
     "/switcher-management/scripts.748ee96c5e079e29b3a6.js": "c2bc930a4669596ce954ffc4bd0d427b8dc70230",
     "/switcher-management/styles.f9c59f871f64682b24a3.css": "11b79e55ba75be388971c489ab0c7280ee409dd4"
